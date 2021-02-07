@@ -1,0 +1,23 @@
+{
+  "name": "handwork",
+  "version": "1.0.0",
+  "description": "",
+  "main": "排序.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sherlockfeng/handwork.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sherlockfeng/handwork/issues"
+  },
+  "homepage": "https://github.com/sherlockfeng/handwork#readme",
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "prettier": "^2.2.1"
+  }
+}
