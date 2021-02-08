@@ -18,7 +18,9 @@
         "@typescript-eslint/explicit-member-accessibility": "off",
         "@typescript-eslint/no-unused-vars": [
             "error",
-            {"argsIgnorePattern": "^_"}
+            {
+                "argsIgnorePattern": "^_"
+            }
         ]
     }
 }
