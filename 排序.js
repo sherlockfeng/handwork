@@ -23,7 +23,6 @@ const quickSort = arr => {
                     left++;
                     right--;
                 }
-                arr[right] = arr[right];
             }
             swap(arr, right, l);
             s(arr, l, right - 1);
@@ -37,7 +36,7 @@ const quickSort = arr => {
 };
 
 const r = quickSort([1, 3, 5, 2, 2, 5]);
-// console.log(r);
+console.log(r);
 
 // 堆排序
 const heapSort = arr => {
@@ -97,3 +96,40 @@ const heapSort = arr => {
 };
 
 heapSort([3, 6, 8, 5, 7]);
+
+const quick = arr => {
+    const swap = (arr, left, right) => {
+        [arr[left], arr[right]] = [arr[right], arr[left]];
+    };
+    const sort = (arr, left, right) => {
+        if (left >= right) {
+            return;
+        }
+        const flag = arr[left];
+        const l = left;
+        const r = right;
+        left++;
+        while (left <= right) {
+            while (left <= right && arr[left] <= flag) {
+                left++;
+            }
+            while (left <= right && arr[right] >= flag) {
+                right--;
+            }
+            if (left < right) {
+                swap(arr, left, right);
+                left++;
+                right--;
+            }
+        }
+        swap(arr, right, l);
+        sort(arr, l, right - 1);
+        sort(arr, right + 1, r);
+    };
+    sort(arr, 0, arr.length - 1);
+    console.log(arr);
+    return arr;
+};
+
+const r = quick([1, 3, 5, 2, 2, 5]);
+console.log(r);
