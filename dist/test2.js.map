@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://handwork/./modules/esmodule/test2.js"],"names":[],"mappings":";;;;;;;;;;;;;;;AAAO;AACA;AACP,iEAAe,UAAU,EAAC","file":"test2.js","sourcesContent":["export const age = 18;\nexport const name = '前端事务所';\nexport default 'ESModule';\n"],"sourceRoot":""}
