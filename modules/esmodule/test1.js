@@ -1,4 +1,3 @@
-import {b} from './test2.js';
-console.log('es1: ' + b); // es1: es2 🥈
-var a = 'es1';
-export {a};
+const a = require('../require/test1');
+a.sayHello();
+import(/* webpackChunkName: "test2" */ './test2.js').then(val => console.log(val));

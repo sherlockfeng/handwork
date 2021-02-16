@@ -1,4 +1,3 @@
-var b = require('./test2').b;
-console.dir('test1: ' + b); // 'test1: test2' 🥈
-var a = 'test1';
-exports.a = a;
+exports.sayHello = (name, desc) => {
+    console.log(`欢迎关注[前端事务所]~`);
+};

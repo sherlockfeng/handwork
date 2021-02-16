@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>左边固定，右边伸缩</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .row {
+            height: 150px;
+            margin-bottom: 30px;
+            max-width: 1000px;
+        }
+
+        .left {
+            height: 100px;
+            width: 200px;
+            background-color: green;
+        }
+
+        .right {
+            height: 100px;
+            margin-left: 20px;
+            background-color: yellow;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex .left {
+            flex: 0 0 200px;
+        }
+
+        .flex .right {
+            flex-grow: 1;
+        }
+
+        .absolute {
+            position: relative;
+        }
+
+        .absolute .right {
+            margin-left: 220px;
+        }
+
+        .absolute .left {
+            position: absolute;
+            left: 0;
+        }
+
+        .float .left {
+            float: left;
+        }
+
+        .float .right {
+            margin-left: 220px;
+        }
+
+        .overflow .left {
+            float: left;
+        }
+
+        .overflow .right {
+            overflow: hidden;
+        }
+
+        .nothing .left {
+            display: inline-block;
+        }
+
+        .nothing .right {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="title">flex</div>
+        <div class="content flex">
+            <div class="left">
+                <p>left left left</p>
+            </div>
+            <div class="right">
+                <p>right right right</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="title">absolute</div>
+        <div class="content absolute">
+            <div class="left">
+                <p>left left left</p>
+            </div>
+            <div class="right">
+                <p>right right right</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="title">float</div>
+        <div class="content float">
+            <div class="left">
+                <p>left left left</p>
+            </div>
+            <div class="right">
+                <p>right right right</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="title">float overflow</div>
+        <div class="content float">
+            <div class="left">
+                <p>left left left</p>
+            </div>
+            <div class="right">
+                <p>right right right</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="title">nothing</div>
+        <div class="content nothing">
+            <div class="left">
+                <p>left left left</p>
+            </div>
+            <div class="right">
+                <p>right right right</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

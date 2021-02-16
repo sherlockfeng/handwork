@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>搜索联想</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="searchVal" :placeholder="placeholder">
+        <ul>
+            <li v-for="item in searchResult" @click="alertFn">{{ item.name }}</li>
+        </ul>
+    </div>
+
+    <script>
+        const dataList = [
+            { name: 'tom' },
+            { name: 'jack' },
+            { name: 'john' },
+            { name: 'rose' },
+            { name: 'mark' }
+        ];
+        const app = new Vue({
+            el: '#app',
+            data: {
+                placeholder: '请输入搜索内容',
+                searchVal: '',
+                searchResult: dataList
+            },
+            watch: {
+                searchVal(val) {
+                    if (!val) {
+                        this.searchResult = dataList;
+                    }
+                    this.searchResult = [];
+                    this.searchResult = dataList.filter(d => d.name.includes(val))
+                }
+            },
+            methods: {
+                alertFn(e) {
+                    e.target.innerText && alert(e.target.innerText);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
