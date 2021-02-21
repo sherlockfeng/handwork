@@ -1,0 +1,49 @@
+- 一面
+  - rollup 打包优势和缺点
+    - 没有运行时的代码
+    - tree-shaking 效果好
+    - 支持打包成 esmodule
+    - 静态分析 es6模块，webpack5之前都不支持
+    - 不支持从 node_modules 里面查找模块，使用插件支持
+    - 不支持 commonjs 包，使用插件支持
+    - webpack 更适合 hmr
+  - webpack 动态加载原理
+    - 使用 import()加载的单独打包成一个 js
+    - 使用时插入 script 标签引入
+    - 单独打包的 js 如果在 main.js 之前加载，会先放入 window 下定义的一个数组变量中，main.js 加载完之后再处理，如果 main.js 先加载，会重写该变量的 push 方法。
+  - rollup 和 webpack 打包原理有什么不同（不知道，没答上来）
+    - rollup打包过程，先生成 ast，再根据 ast 执行代码，这样用到的模块或方法，才会在执行中被引入，所以 import 的模块内部没有用的代码也会被tree-shaking掉。
+    - webpack是会遍历所有的 import 和 export，建立关系，然后用 loader 一个个打包，再根据关系组装成chunk，最后输出到文件
+  - 基本类型和引用类型分别是存放在堆还是栈，为什么
+    - 引用类型在堆上，基本类型在栈上
+    - 栈是随着函数的执行，会入栈或者释放的，引用类型是可能被多个作用域引用的，所以放在堆上，基本类型会随着作用域执行完需要销毁的，所以放在栈上
+  - js为什么会随原型链查找
+    - js 的对象的[[proto]]属性上存放了对齐构造函数的 prototype 的引用，js 会随这个引用链逐步查找上去
+  - js作用域链的根本原理是什么
+    - 作用域链是一个 stack，[window, function a, function b]，每一层都可以引用上一层的变量
+  - js 为什么0.1 + 0.2 有误差，怎么解决
+    - js 计算双精度浮点数的标注问题
+    - 转为整数计算
+    - 使用Number.EPSILO，误差在这个范围内就行
+  - nginx 配置写一下
+    - server {listen 80 location / {root html;index index.html}}
+  - node 实现多线程原理
+    - 使用 cluster，建立 child_process 跑着不同核上
+  - 网络缓存
+    - 强缓存，协商缓存，启发式缓存，304，200，相关 header，from cache from disk balabala 大家都知道的
+  - 跨域被拒绝的请求，服务器收到这个请求了吗？
+    - 收到了，要不然提示跨域错误的消息怎么返回的
+  - websocket 是那个层的协议(没答上来)
+    - 应该是应用层
+  - vue3 diff 算法优化
+    - vue2 diff 是先进行s s,s e,e e,e s这四种匹配，匹配完之后再比较剩余节点
+    - vue3 diff 是 s s, e e,匹配后，找剩余节点的最长递增子序列，然后在此序列上插入。
+    - vue3 对静态、动态节点都进行了标记，变化时只比较动态节点
+  - vue3为什么使用 proxy
+    - proxy 监听对象变动不用指定 key
+    - proxy 可以监听数组变化，对数组操作时，会获得'length','0','1'这样的 key
+  - ts 怎么实现获得函数 return Type的，同理可以怎么获取函数的入参的 type
+    见 code.ts
+  - 解决 ts 类型报错， 使用'key' in 判断一下就行
+  - 写一个函数求数的开方，要求精确到小数点后10位，不能使用 Math
+    二分法

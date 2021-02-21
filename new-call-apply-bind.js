@@ -38,7 +38,18 @@ const fApply = (fuc, obj, args) => {
     obj.f = fuc;
     obj.f(...args);
 };
+
 function fuc(a, b, c) {
     console.log(a + b + c, this.name);
 }
 fApply(fuc, {name: 'name'}, [1, 2, 3]);
+
+const fBind = (fuc, obj, ...args) => {
+    obj.f = fuc;
+    return (...a) => {
+        obj.f(...args, ...a);
+    };
+};
+
+const d = fBind(fuc, {name: 123}, 1);
+d(2, 3);
