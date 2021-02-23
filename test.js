@@ -1,31 +1,87 @@
-function thunkFun() {
-    let val;
-    //模拟异步操作
-    setTimeout(() => {
-        let msg = '前端事务所';
-        console.log(1, val);
-        if (val) {
-            console.log(2, val);
+const newF = (fun, ...args) => {
+    if (typeof fun !== 'function') {
+        return;
+    }
+    newF.target = fn;
+    const o = Object.create(fun.prototype);
+    const r = fun(...args);
+    if ((typeof f === 'object' && f !== null) || typeof f === 'function') {
+        return r;
+    }
+    return o;
+};
 
-            val(msg);
-            return;
-        }
-        val = msg;
-    }, 1000);
-    return callback => {
-        if (!val) {
-            val = callback;
-            return;
-        }
-        callback(val);
+const xipai = arr => {
+    const swap = (arr, left, right) => {
+        [arr[left], arr[right]] = [arr[right], arr[left]];
     };
+
+    for (let i = arr.length - 1; i >= 0; i--) {
+        const index = Math.floor(Math.random() * (i + 1));
+        swap(arr, index, i);
+    }
+
+    return arr;
+};
+
+const quickSort = arr => {
+    const swap = (arr, left, right) => {
+        [arr[left], arr[right]] = [arr[right], arr[left]];
+    };
+    const help = (arr, left, right) => {
+        if (left < right) {
+            const flag = arr[left];
+            const l = left;
+            const r = right;
+            left++;
+            while (left <= right) {
+                while (left <= right && arr[left] <= flag) {
+                    left++;
+                }
+                while (left <= right && arr[right] >= flag) {
+                    right--;
+                }
+                if (left < right) {
+                    swap(arr, left, right);
+                    left++;
+                    right--;
+                }
+            }
+            console.log(l, right);
+            swap(arr, l, right);
+            help(arr, l, right - 1);
+            help(arr, right + 1, r);
+        }
+    };
+
+    help(arr, 0, arr.length - 1);
+
+    return arr;
+};
+
+const r = quickSort([1, 3, 5, 2, 2, 5]);
+console.log(r);
+
+function Person() {
+    this.name = 'A';
 }
-//使用
-let run = new thunkFun();
-let callback = val => console.log(val);
-//情况1：模拟先注册回调，而后异步操作才执行完
-run(callback);
-//情况2：模拟异步操作先执行完，而后回调函数才注册
-setTimeout(() => {
-    run(callback);
-}, 3000);
+
+Person.prototype.sayName = function () {
+    console.log(this.name);
+};
+
+Person();
+
+const b = {};
+
+Person.prototype.sayName.call(b);
+
+const c = () => {
+    this.name = 'C';
+};
+
+const d = {name: 'z'};
+
+c.call(d);
+
+console.log(d);
