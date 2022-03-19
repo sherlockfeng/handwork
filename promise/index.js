@@ -1,3 +1,5 @@
+let name = 1;
+
 class Pro {
     static pending = 'pending';
     static fullfilled = 'fullfilled';
@@ -8,6 +10,8 @@ class Pro {
     };
 
     constructor(cb) {
+        this.name = name;
+        name++;
         this.callbacks = [];
         this.value = undefined;
         this.reason = undefined;
@@ -39,6 +43,7 @@ class Pro {
 
     then(onFullfiled, onRejected) {
         return new Pro((nextResolve, nextReject) => {
+            console.log('this in then', this);
             this._handle({
                 onFullfiled,
                 onRejected,
@@ -49,8 +54,10 @@ class Pro {
     }
 
     _handle(cb) {
+        console.log('this in handle =', this);
         if (this.status === Pro.pending) {
             this.callbacks.push(cb);
+            console.log('this.callbacks =', this.callbacks);
             return;
         }
 
