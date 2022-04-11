@@ -1,4 +1,4 @@
-import {Dep, pushTarget, popTarget} from './dep';
+import {Dep, pushTarget, popTarget} from './dep.js';
 
 export class Watcher {
 

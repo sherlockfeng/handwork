@@ -6,6 +6,7 @@ export class Dep {
 
     depend() {
         Dep.target && this.subs.push(Dep.target);
+        console.log(this.subs);
     }
 
     notify() {

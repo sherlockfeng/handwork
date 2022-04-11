@@ -13,8 +13,10 @@ export const reactive = data => {
 export const defineReactive = (data, key) => {
     let val = data[key];
     const dep = new Dep();
+    data.dep = dep;
     Object.defineProperty(data, key, {
         get() {
+            console.log('data', data, key);
             dep.depend();
             return val;
         },

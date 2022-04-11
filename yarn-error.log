@@ -1,0 +1,79 @@
+Arguments: 
+  /Users/heyunfeng/.nvm/versions/node/v14.18.1/bin/node /Users/heyunfeng/.node/corepack/yarn/1.22.15/bin/yarn.js add prettier
+
+PATH: 
+  /Users/heyunfeng/.nvm/versions/node/v14.18.1/bin:/usr/local/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/heyunfeng/.nvm/versions/node/v14.18.1/bin:/usr/local/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/opt/homebrew/sbin
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  14.18.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: http://registry.npm.baidu-int.com/fs-exists-cached/-/fs-exists-cached-1.0.0.tgz: Request failed "404 Not Found"
+      at ResponseError.ExtendableBuiltin (/Users/heyunfeng/.node/corepack/yarn/1.22.15/lib/cli.js:696:66)
+      at new ResponseError (/Users/heyunfeng/.node/corepack/yarn/1.22.15/lib/cli.js:802:124)
+      at Request.<anonymous> (/Users/heyunfeng/.node/corepack/yarn/1.22.15/lib/cli.js:66210:16)
+      at Request.emit (events.js:400:28)
+      at Request.module.exports.Request.onRequestResponse (/Users/heyunfeng/.node/corepack/yarn/1.22.15/lib/cli.js:141762:10)
+      at ClientRequest.emit (events.js:400:28)
+      at HTTPParser.parserOnIncomingClient (_http_client.js:647:27)
+      at HTTPParser.parserOnHeadersComplete (_http_common.js:127:17)
+      at Socket.socketOnData (_http_client.js:515:22)
+      at Socket.emit (events.js:400:28)
+
+npm manifest: 
+  {
+    "name": "handwork",
+    "version": "1.0.0",
+    "description": "",
+    "main": "排序.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "vuedev": "webpack serve --config ./tinyVue/webpack.dev.js",
+      "vuebuild": "webpack --config ./tinyVue/webpack.prod.js",
+      "modulebuild": "webpack --config ./modules/webpack.config.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/sherlockfeng/handwork.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/sherlockfeng/handwork/issues"
+    },
+    "homepage": "https://github.com/sherlockfeng/handwork#readme",
+    "devDependencies": {
+      "@babel/core": "^7.12.16",
+      "@babel/plugin-proposal-class-properties": "^7.12.13",
+      "@babel/preset-env": "^7.12.16",
+      "@typescript-eslint/eslint-plugin": "^4.14.2",
+      "babel-loader": "^8.2.2",
+      "cheerio": "^1.0.0-rc.5",
+      "clean-webpack-plugin": "^3.0.0",
+      "eslint": "^7.19.0",
+      "html-webpack-plugin": "^5.1.0",
+      "htmlparser2": "^6.0.0",
+      "prettier": "^2.6.0",
+      "request": "^2.88.2",
+      "soupselect": "^0.2.0",
+      "webpack": "^5.22.0",
+      "webpack-cli": "^4.5.0",
+      "webpack-dev-server": "^3.11.2",
+      "webpack-merge": "^5.7.3"
+    },
+    "dependencies": {
+      "request-promise": "^4.2.6"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

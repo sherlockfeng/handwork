@@ -800,3 +800,40 @@ const p1 = new Promise(resolve => {
 // resovle1 finally undefined timer1 Promise{<fulfilled>: undefined}
 // finally不管Promise的状态是resolved还是rejected都会执行，且它的回调函数是接收不到Promise的结果的，所以finally()中的res是一个迷惑项(类似3.10)。
 // 最后一个定时器打印出的p1其实是.finally的返回值，我们知道.finally的返回值如果在没有抛出错误的情况下默认会是上一个Promise的返回值(3.10中也有提到), 而这道题中.finally上一个Promise是.then()，但是这个.then()并没有返回值，所以p1打印出来的Promise的值会是undefined，如果你在定时器的下面加上一个return 1，则值就会变成1(感谢掘友JS丛中过的指出)。
+
+const promise = new Promise(resolve => {
+    console.log('11111');
+
+    setTimeout(() => {
+        console.log('22222');
+    }, 0);
+
+    // resolve();
+
+    console.log('resolve');
+
+    throw new Error('error');
+
+    console.log('error');
+});
+
+promise
+    .then(
+        () => {
+            console.log('33333');
+
+            setTimeout(() => {
+                console.log('44444');
+            }, 0);
+        },
+
+        () => {
+            console.log('reject');
+        }
+    )
+    .catch(() => {
+        console.log('catch');
+    });
+
+console.log('55555');
+// 11111 resolve 55555 33333 22222 44444

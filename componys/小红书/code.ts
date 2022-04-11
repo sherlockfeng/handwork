@@ -26,3 +26,5 @@ const sq = n => {
 
     return preMid;
 };
+
+type ReturnType<T> = T extends (...args: any[]) => infer p ? p : never;

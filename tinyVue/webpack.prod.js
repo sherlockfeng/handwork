@@ -6,6 +6,6 @@ module.exports = merge(common, {
     mode: 'production',
     output: {
         filename: 'bundle.js',
-        path: path.resolve('./tinyVue/dist')
+        path: path.resolve('./dist')
     }
 });
